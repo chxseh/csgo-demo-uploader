@@ -1,0 +1,15 @@
+name: "📦️ Auto Merge Dependency Updates"
+
+on:
+  - pull_request_target
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tjenkinson/gh-action-auto-merge-dependency-updates@v1
+        with:
+          allowed-actors: dependabot[bot]
+          allowed-update-types: devDependencies:minor, devDependencies:patch, devDependencies:major
+          merge-method: squash
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

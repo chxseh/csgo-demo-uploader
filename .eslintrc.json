@@ -1,0 +1,27 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "chase"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": "off",
+        "no-restricted-syntax": "off"
+    },
+    "globals": {
+        "reactionMessageIds": "writable",
+        "getInfoById": "readonly",
+        "getConfiguration": "readonly",
+        "setInfo": "writable",
+        "setConfiguration": "writable",
+        "sm2Servers": "readonly",
+        "APIUrl": "readonly",
+        "gLocale": "writable"
+    }
+}

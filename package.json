@@ -1,0 +1,38 @@
+{
+    "name": "bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+        "node": ">=16.14.0"
+    },
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "lint": "eslint --fix --ext .js ."
+    },
+    "author": "Chase <c@chse.dev> (https://chse.dev)",
+    "contributors": [],
+    "license": "",
+    "dependencies": {
+        "catbox.moe": "^1.0.2",
+        "discord.js": "14.2.0"
+    },
+    "devDependencies": {
+        "eslint": "8.21.0",
+        "eslint-config-chase": "1.0.4",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-jsdoc": "39.3.6",
+        "eslint-plugin-unicorn": "43.0.2"
+    },
+    "homepage": "",
+    "keywords": [
+        "discord",
+        "discord.js",
+        "discordjs"
+    ],
+    "repository": {
+        "type": "git",
+        "url": ""
+    }
+}
