@@ -1,0 +1,25 @@
+---
+name: "🎨 Lint"
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]' && !contains(github.event.head_commit.message, '[skip lint]')
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: "📦️ Install Dependencies"
+        run: |
+          npm install
+
+      - name: "🎨 ESLint"
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx

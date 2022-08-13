@@ -1,0 +1,9 @@
+# Packages
+node_modules/
+
+# Private Data
+config.json
+
+# Misc
+*.bak
+.DS_Store
