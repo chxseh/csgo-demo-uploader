@@ -14,14 +14,5 @@
         "no-console": "off",
         "no-restricted-syntax": "off"
     },
-    "globals": {
-        "reactionMessageIds": "writable",
-        "getInfoById": "readonly",
-        "getConfiguration": "readonly",
-        "setInfo": "writable",
-        "setConfiguration": "writable",
-        "sm2Servers": "readonly",
-        "APIUrl": "readonly",
-        "gLocale": "writable"
-    }
+    "globals": {}
 }
