@@ -86,5 +86,5 @@ async function doDemos(actionDone, filename, client, Discord)
         await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
     else
-        await client.channels.cache.get(uploadChannelId).send(`${ filename } is too big to upload. Please ask the bot owner to upload it.`);
+        await client.channels.cache.get(uploadChannelId).send(`\`${ filename }\` is too big to upload. Please ask the bot owner to upload it.`);
 }
