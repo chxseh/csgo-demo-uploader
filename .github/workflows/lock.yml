@@ -1,0 +1,21 @@
+---
+name: "🔒 Lock Resolved Issues/PRs"
+
+on:
+  pull_request:
+    types:
+      - closed
+  issues:
+    types:
+      - closed
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: sudo-bot/action-pull-request-lock@v1.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number || github.event.issue.number }}
+          lock-reason: resolved
