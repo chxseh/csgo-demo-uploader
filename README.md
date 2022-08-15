@@ -4,8 +4,9 @@ After a CS:GO Demo is finished recording, upload to a Discord Channel.
 
 ```bash
 git clone https://github.com/chxseh/csgo-demo-uploader
+cd csgo-demo-uploader
 npm i
-cp config.json.example config.json
+cp src/config.json.example src/config.json
 # edit config
 node .
 ```
