@@ -38,7 +38,7 @@ async function init()
 
     client.login(token);
 
-    // catch everything if not workflow AND not dev env
+    // catch everything so bot keeps running
     process.on(`unhandledRejection`, (error) =>
     {
         console.log(error);
