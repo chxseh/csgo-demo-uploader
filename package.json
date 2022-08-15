@@ -2,14 +2,14 @@
     "name": "bot",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "./src/index.js",
     "engines": {
         "node": ">=16.14.0"
     },
     "type": "module",
     "scripts": {
-        "start": "node index.js",
-        "lint": "eslint --fix --ext .js ."
+        "start": "node ./src/index.js",
+        "lint": "eslint --fix --ext .js ./src"
     },
     "author": "Chase <c@chse.dev> (https://chse.dev)",
     "contributors": [],
@@ -25,7 +25,6 @@
         "eslint-plugin-jsdoc": "39.3.6",
         "eslint-plugin-unicorn": "43.0.2"
     },
-    "homepage": "",
     "keywords": [
         "discord",
         "discord.js",
@@ -33,6 +32,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": ""
-    }
+        "url": "git+https://github.com/chxseh/csgo-demo-uploader.git"
+    },
+    "bugs": {
+        "url": "https://github.com/chxseh/csgo-demo-uploader/issues"
+    },
+    "homepage": "https://github.com/chxseh/csgo-demo-uploader#readme"
 }

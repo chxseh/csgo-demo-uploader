@@ -25,7 +25,7 @@ async function init()
     else if (uploadChannelId.length < 8)
         console.error(`Invalid uploadChannelId specified.`);
 
-    const eventFiles = fs.readdirSync(`./events`).filter((file) => file.endsWith(`.js`));
+    const eventFiles = fs.readdirSync(`./src/events`).filter((file) => file.endsWith(`.js`));
     for (const file of eventFiles)
     {
         let event = await import(`./events/${ file }`);
