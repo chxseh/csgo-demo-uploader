@@ -12,7 +12,7 @@
 Automatically Upload CSGO Demo(s) to a Discord Channel.
 
 
-![img](https://i.imgur.com/FSgkaFY.png)
+![img](https://i.imgur.com/9xDT2AY.png)
 
 ```bash
 git clone https://github.com/chxseh/csgo-demo-uploader
