@@ -16,7 +16,7 @@
     "license": "",
     "dependencies": {
         "catbox.moe": "^1.0.2",
-        "discord.js": "14.2.0"
+        "discord.js": "14.3.0"
     },
     "devDependencies": {
         "eslint": "8.22.0",
