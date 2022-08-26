@@ -8,7 +8,6 @@ const client = new Discord.Client({
     partials: [Discord.Partials.Channel],
     intents: [
         Discord.GatewayIntentBits.Guilds,
-        Discord.GatewayIntentBits.GuildMessages,
     ],
 });
 
