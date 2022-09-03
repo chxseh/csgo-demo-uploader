@@ -33,7 +33,7 @@ export default {
         }
 
         var actionDone = {};
-        console.log(`Looking at existing demos...`);
+        console.log(`Watching for existing demos...`);
         const files = fs.readdirSync(demoDir);
         for (const filename of files)
         {
@@ -41,7 +41,7 @@ export default {
                 await doDemos(actionDone, filename, client, Discord);
         }
 
-        console.log(`Watching...`);
+        console.log(`Watching for new demos...`);
         fs.watch(demoDir, async (eventType, filename) =>
         {
             if (eventType === `change` && filename.endsWith(`.dem`))
