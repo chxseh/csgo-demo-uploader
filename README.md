@@ -35,4 +35,9 @@ cp src/config.json.example src/config.json
 node .
 ```
 
-See [SourceTV](https://developer.valvesoftware.com/wiki/SourceTV#Recording_Games) Docs for setting up a CS:GO Server to auto-record demos.
+To enable auto recording on your server, add these lines in your server.cfg:
+```
+tv_enable 1
+tv_autorecord 1
+tv_maxclients 0
+```
