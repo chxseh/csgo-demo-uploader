@@ -75,7 +75,7 @@ async function doDemos(actionDone, filename, client, Discord)
             content: message,
             files: [attachment]
         });
-        await fs.unlinkSync(`${ demoDir }/${ filename }`);
+        //await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
     else if (file.length < 200_000_000)
     {
@@ -83,7 +83,7 @@ async function doDemos(actionDone, filename, client, Discord)
         const catbox = new Catbox.Catbox(undefined);
         const potUrl = await catbox.upload(filePath);
         await client.channels.cache.get(uploadChannelId).send(`${ message } ${ potUrl }`);
-        await fs.unlinkSync(`${ demoDir }/${ filename }`);
+        //await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
     else
         await client.channels.cache.get(uploadChannelId).send(`\`${ filename }\` is too big to upload. Please ask the bot owner to upload it.`);
