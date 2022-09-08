@@ -82,7 +82,7 @@ async function doDemos(actionDone, filename, client, Discord)
         // upload to catbox
         const catbox = new Catbox.Catbox(undefined);
         const potUrl = await catbox.upload(filePath);
-        await client.channels.cache.get(uploadChannelId).send(`${ message } ${ potUrl }`);
+        await client.channels.cache.get(uploadChannelId).send(`${ message } ${ potUrl }\nOriginal File Name: \`${ filename }\``);
         // await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
     else
