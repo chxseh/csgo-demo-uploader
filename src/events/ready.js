@@ -83,9 +83,7 @@ async function doDemos(actionDone, filename, client, Discord)
         const catbox = new Catbox.Catbox(undefined);
         const potUrl = await catbox.upload(filePath);
         if (potUrl.includes(`502 Bad Gateway`))
-        {
-            return await client.channels.cache.get(uploadChannelId).send(`Catbox was down, please ask the bot owner to upload \`${ filename }\``);
-        }
+            return client.channels.cache.get(uploadChannelId).send(`Catbox was down, please ask the bot owner to upload \`${ filename }\``);
         await client.channels.cache.get(uploadChannelId).send(`${ message } ${ potUrl }\nOriginal File Name: \`${ filename }\``);
         // await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
