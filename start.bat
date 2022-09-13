@@ -1,5 +1,5 @@
 @echo off
-title CSGO Demo Watcher
+title CSGO Demo Uploader
 
 git fetch --all
 git reset --hard origin/HEAD

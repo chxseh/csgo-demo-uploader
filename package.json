@@ -1,7 +1,7 @@
 {
-    "name": "bot",
+    "name": "csgo-demo-uploader",
     "version": "1.0.0",
-    "description": "",
+    "description": "Automatically Upload CSGO Demo(s) to a Discord Channel.",
     "main": "./src/index.js",
     "engines": {
         "node": ">=16.14.0"
@@ -16,7 +16,8 @@
     "license": "",
     "dependencies": {
         "catbox.moe": "^1.0.2",
-        "discord.js": "14.3.0"
+        "discord.js": "14.3.0",
+        "readline-sync": "^1.4.10"
     },
     "devDependencies": {
         "eslint": "8.23.1",
@@ -28,7 +29,8 @@
     "keywords": [
         "discord",
         "discord.js",
-        "discordjs"
+        "discordjs",
+        "csgo"
     ],
     "repository": {
         "type": "git",
