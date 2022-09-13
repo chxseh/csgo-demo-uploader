@@ -18,11 +18,26 @@ async function init()
 {
     const { token, demoDir, uploadChannelId } = require(`./config.json`);
     if (token.length < 50)
+    {
         console.error(`Invalid token specified.`);
+        process.exit(1);
+    }
     else if (!fs.existsSync(demoDir))
+    {
         console.error(`Invalid demo directory specified.`);
+        process.exit(1);
+    }
     else if (uploadChannelId.length < 8)
+    {
         console.error(`Invalid uploadChannelId specified.`);
+        process.exit(1);
+    }
+
+    /* eslint-disable unicorn/empty-brace-spaces */
+    // catch everything so bot keeps running
+    process.on(`unhandledRejection`, () => { });
+    process.on(`uncaughtException`, () => { });
+    /* eslint-enable unicorn/empty-brace-spaces */
 
     const eventFiles = fs.readdirSync(`./src/events`).filter((file) => file.endsWith(`.js`));
     for (const file of eventFiles)
@@ -36,17 +51,6 @@ async function init()
     }
 
     client.login(token);
-
-    // catch everything so bot keeps running
-    process.on(`unhandledRejection`, (error) =>
-    {
-        console.log(error);
-    });
-
-    process.on(`uncaughtException`, (error) =>
-    {
-        console.log(error);
-    });
 }
 
 await init();

@@ -4,7 +4,6 @@ import Catbox from "catbox.moe";
 
 const require = createRequire(import.meta.url);
 const { demoDir, uploadChannelId } = require(`../config.json`);
-const message = `New Demo:`;
 
 /**
  * @name ready
@@ -61,32 +60,35 @@ async function doDemos(actionDone, filename, client, Discord)
 {
     const file = fs.readFileSync(`${ demoDir }/${ filename }`);
     const filePath = `${ demoDir }/${ filename }`;
+
+    // Prevent duplicate uploads.
     var stats = fs.statSync(filePath);
     var seconds = +stats.mtime;
     if (actionDone[filename] === seconds) return;
     actionDone[filename] = seconds;
 
     if (file.length < 2) return; // Ignore empty files.
-    // If file is less than 8 mb upload as attachment.
     if (file.length < 8_000_000)
-    {
+    { // If < 8MB, upload as Discord Attachment.
         const attachment = new Discord.AttachmentBuilder(file, { name: filename });
         await client.channels.cache.get(uploadChannelId).send({
-            content: message,
             files: [attachment]
         });
-        // await fs.unlinkSync(`${ demoDir }/${ filename }`);
     }
     else if (file.length < 200_000_000)
-    {
-        // upload to catbox
+    { // If < 2GB, upload to Catbox.
         const catbox = new Catbox.Catbox(undefined);
         const potUrl = await catbox.upload(filePath);
-        if (potUrl.includes(`502 Bad Gateway`))
-            return client.channels.cache.get(uploadChannelId).send(`Catbox was down, please ask the bot owner to upload \`${ filename }\``);
-        await client.channels.cache.get(uploadChannelId).send(`${ message } ${ potUrl }\nOriginal File Name: \`${ filename }\``);
-        // await fs.unlinkSync(`${ demoDir }/${ filename }`);
+        if (!potUrl || potUrl === undefined || potUrl === `undefined` || potUrl.includes(`<body>`))
+            return client.channels.cache.get(uploadChannelId).send(`Catbox was down, please ask the bot owner to upload \`${ filename }\`.`);
+        await client.channels.cache.get(uploadChannelId).send(`<${ potUrl }>\nOriginal File Name: \`${ filename }\``);
     }
     else
-        await client.channels.cache.get(uploadChannelId).send(`\`${ filename }\` is too big to upload. Please ask the bot owner to upload it.`);
+    {
+        // Too big to handle, bail.
+        await client.channels.cache.get(uploadChannelId).send(`\`${ filename }\` is too big to upload.\nPlease ask the bot owner to upload it.`);
+    }
+
+    // Delete demo from local disk after upload. (Can potentially miss some demos if Catbox is down, or demo is > 2GB.)
+    // await fs.unlinkSync(`${ demoDir }/${ filename }`);
 }
