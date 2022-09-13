@@ -3,7 +3,7 @@ import { createRequire } from "node:module";
 import Catbox from "catbox.moe";
 
 const require = createRequire(import.meta.url);
-const { demoDir, uploadChannelId } = require(`../config.json`);
+const { demoDir, uploadChannelId, deleteAfterUpload } = require(`../config.json`);
 
 /**
  * @name ready
@@ -90,5 +90,6 @@ async function doDemos(actionDone, filename, client, Discord)
     }
 
     // Delete demo from local disk after upload. (Can potentially miss some demos if Catbox is down, or demo is > 2GB.)
-    // await fs.unlinkSync(`${ demoDir }/${ filename }`);
+    if (deleteAfterUpload)
+        await fs.unlinkSync(`${ demoDir }/${ filename }`);
 }

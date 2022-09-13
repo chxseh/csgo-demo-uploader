@@ -111,9 +111,12 @@ async function configCheck()
     if (demoDirectory.endsWith(`\\`) || demoDirectory.endsWith(`/`))
         demoDirectory = demoDirectory.slice(0, -1);
 
+    const deleteAfterUpload = readlineSync.keyInYNStrict(`Do you want to delete the demo after it has been uploaded? `);
+
     const config = require(`./config.json`);
     config.token = token.trim();
     config.demoDir = demoDirectory.trim();
     config.uploadChannelId = uploadChannelId.trim();
+    config.deleteAfterUpload = deleteAfterUpload;
     fs.writeFileSync(`./src/config.json`, JSON.stringify(config, undefined, 4)); // save settings to config
 }

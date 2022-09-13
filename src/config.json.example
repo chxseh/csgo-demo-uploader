@@ -1,5 +1,6 @@
 {
     "token": "XXX",
     "demoDir": "C:\\CSGO\\csgo",
-    "uploadChannelId": "123"
+    "uploadChannelId": "123",
+    "deleteAfterUpload": false
 }
