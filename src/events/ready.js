@@ -35,8 +35,18 @@ export default {
             process.exit(1);
         }
 
+        console.log(chalk.blue(`Config Options:`));
+        console.log(chalk.yellow(`Demo Directory: ${ demoDir }`));
+        console.log(chalk.yellow(`Upload Channel: #${ await client.channels.cache.get(uploadChannelId).name }`));
+        if (deleteAfterUpload)
+            console.log(chalk.green(`deleteAfterUpload: enabled (This will delete all demos after they are uploaded.)`));
+        else
+            console.log(chalk.red(`deleteAfterUpload: disabled (This will keep all demos after they are uploaded.)`));
+
+        console.log(chalk.blue(`If you want to change these options, please edit the config.json file in the src folder.\n`));
+
         var actionDone = {};
-        console.log(`Watching for existing demos...`);
+        console.log(chalk.green(`Watching for existing demos...`));
         const files = fs.readdirSync(demoDir);
         for (const filename of files)
         {
@@ -44,7 +54,7 @@ export default {
                 await doDemos(actionDone, filename, client, Discord);
         }
 
-        console.log(`Watching for new demos...`);
+        console.log(chalk.green(`Watching for new demos...`));
         fs.watch(demoDir, async (eventType, filename) =>
         {
             if (eventType === `change` && filename.endsWith(`.dem`))
