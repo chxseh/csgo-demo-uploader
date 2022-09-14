@@ -1,5 +1,7 @@
-git fetch --all
-git reset --hard origin/HEAD
-npm ci --only=prod
+echo Updating...
+echo
+git fetch --all > /dev/null
+git reset --hard origin/HEAD > /dev/null
+npm ci --only=prod > /dev/null
 clear
 node .

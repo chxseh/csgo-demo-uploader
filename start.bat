@@ -1,8 +1,10 @@
 @echo off
 title CSGO Demo Uploader
 
-git fetch --all
-git reset --hard origin/HEAD
-call npm ci --only=prod
+echo Updating...
+echo.
+git fetch --all >nul
+git reset --hard origin/HEAD >nul
+call npm ci --only=prod >nul
 cls
 call node .
