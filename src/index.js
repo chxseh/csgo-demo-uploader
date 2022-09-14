@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import { createRequire } from "node:module";
 import Discord from "discord.js";
+import chalk from 'chalk';
 
 const require = createRequire(import.meta.url);
+var readlineSync = require(`readline-sync`);
 
 const client = new Discord.Client({
     partials: [Discord.Partials.Channel],
@@ -23,17 +25,20 @@ async function init()
     const { token, demoDir, uploadChannelId } = require(`./config.json`);
     if (token.length < 50)
     {
-        console.error(`Invalid token specified.`);
+        console.error(chalk.bold.red(`Invalid token specified.`));
+        readlineSync.question(`\nPress Enter to exit...\n`);
         process.exit(1);
     }
     else if (!fs.existsSync(demoDir))
     {
-        console.error(`Invalid demo directory specified.`);
+        console.error(chalk.bold.red(`Invalid demo directory specified.`));
+        readlineSync.question(`\nPress Enter to exit...\n`);
         process.exit(1);
     }
     else if (uploadChannelId.length < 8)
     {
-        console.error(`Invalid uploadChannelId specified.`);
+        console.error(chalk.bold.red(`Invalid uploadChannelId specified.`));
+        readlineSync.question(`\nPress Enter to exit...\n`);
         process.exit(1);
     }
 
@@ -85,8 +90,6 @@ async function configCheck()
     }
 
     fs.copyFileSync(`./src/config.json.example`, `./src/config.json`);
-
-    var readlineSync = require(`readline-sync`);
 
     let token = ``;
     do

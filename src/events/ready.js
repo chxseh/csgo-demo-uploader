@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import { createRequire } from "node:module";
 import Catbox from "catbox.moe";
+import chalk from 'chalk';
 
 const require = createRequire(import.meta.url);
+var readlineSync = require(`readline-sync`);
 const { demoDir, uploadChannelId, deleteAfterUpload } = require(`../config.json`);
 
 /**
@@ -22,12 +24,14 @@ export default {
 
         if (client.guilds.cache.size === 0)
         {
-            console.log(`Invite me to a server before starting:\nhttps://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot%20applications.commands`);
+            console.log(chalk.bold.red(`Invite me to a server before starting:\nhttps://discord.com/api/oauth2/authorize?client_id=${ client.user.id }&permissions=8&scope=bot%20applications.commands`));
+            readlineSync.question(`\nPress Enter to exit...\n`);
             process.exit(1);
         }
         else if (client.guilds.cache.size > 1)
         {
-            console.log(`This bot only works in one server. Please kick it from other servers and try again.`);
+            console.log(chalk.bold.red(`This bot only works in one server. Please kick it from other servers and try again.`));
+            readlineSync.question(`\nPress Enter to exit...\n`);
             process.exit(1);
         }
 
