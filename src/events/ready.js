@@ -36,7 +36,7 @@ export default {
             process.exit(1);
         }
 
-        client.user.setActivity(`CS:GO`, { type: ActivityType.Playing });        
+        client.user.setActivity(`CS:GO`, { type: ActivityType.Playing });
 
         console.log(chalk.blue(`Config Options:`));
         console.log(chalk.yellow(`Demo Directory: ${ demoDir }`));
