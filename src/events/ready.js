@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { createRequire } from "node:module";
 import Catbox from "catbox.moe";
 import chalk from 'chalk';
+import { ActivityType } from "discord.js";
 
 const require = createRequire(import.meta.url);
 var readlineSync = require(`readline-sync`);
@@ -34,6 +35,8 @@ export default {
             readlineSync.question(`\nPress Enter to exit...\n`);
             process.exit(1);
         }
+
+        client.user.setActivity(`CS:GO`, { type: ActivityType.Playing });        
 
         console.log(chalk.blue(`Config Options:`));
         console.log(chalk.yellow(`Demo Directory: ${ demoDir }`));
