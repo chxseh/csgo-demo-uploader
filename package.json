@@ -16,7 +16,7 @@
     "license": "",
     "dependencies": {
         "catbox.moe": "^1.0.2",
-        "chalk": "^5.1.0",
+        "chalk": "^5.1.2",
         "discord.js": "14.6.0",
         "readline-sync": "^1.4.10"
     },
