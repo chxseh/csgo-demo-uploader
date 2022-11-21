@@ -21,7 +21,7 @@
         "readline-sync": "^1.4.10"
     },
     "devDependencies": {
-        "eslint": "8.27.0",
+        "eslint": "8.28.0",
         "eslint-config-chase": "1.0.5",
         "eslint-plugin-import": "2.26.0",
         "eslint-plugin-jsdoc": "39.6.2",
