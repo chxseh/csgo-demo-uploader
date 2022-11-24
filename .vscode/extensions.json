@@ -3,6 +3,7 @@
         "dbaeumer.vscode-eslint",
         "github.vscode-pull-request-github",
         "eamodio.gitlens",
-        "aaron-bond.better-comments"
+        "aaron-bond.better-comments",
+        "EditorConfig.EditorConfig"
     ]
 }
