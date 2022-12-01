@@ -2,13 +2,13 @@
     "name": "csgo-demo-uploader",
     "version": "1.0.0",
     "description": "Automatically Upload CSGO Demo(s) to a Discord Channel.",
-    "main": "./src/index.js",
+    "main": "./src/app.js",
     "engines": {
         "node": ">=16.14.0"
     },
     "type": "module",
     "scripts": {
-        "start": "node ./src/index.js",
+        "start": "node .",
         "lint": "eslint --fix --ext .js ./src"
     },
     "author": "Chase <c@chse.dev> (https://chse.dev)",
